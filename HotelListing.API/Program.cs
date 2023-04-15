@@ -40,7 +40,9 @@ builder.Services.AddDbContext<HotelListingDBContext>(options =>
 builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
 //--5--[repository]
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ICountryRepository, CountryRepository>();
+builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 
 
 var app = builder.Build();
